@@ -5,27 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="heads">
-        <h1 class="headsH1">ToDoList</h1>
-        <h3>Запиши чтоб не забыть, а то я тебя знаю.</h3>
+    <header>
+        <div class="toDo_wrapper container-xs">
+            <div class="toDo_title">
+                <div>
+                    <h1>ToDoList</h1>
+                    <h3>Запиши чтоб не забыть, а то я тебя знаю.</h3>
+                </div>
+            </div>
+            <div class="form_block col-12>">
+                <H1>Задача</H1>
+                <form>
+                    
+                    <input name="form" TYPE="text" class="form-control text_form" list="datalistOptions" id="exampleDataList" placeholder="Задача">
+                    <Input name="form" id="data" type="date" value=""></Input></br>
+                    <div class="form-check form-check-inline">
+                        <input name="form" class="form-check-input" type="checkbox" id="free" value="free">
+                        <label class="form-check-label" for="inlineCheckbox1">Свободен/дна</label>
+                      </div>
+                
+                    <button type="button" class="btn btn-primary" id="set">Записать</button>
+                </form>    
+            </div>   
+        </div>
+    </header>
+    
+    <div class="item-block" id="content"> 
+        <div class="item_box"> 
+            
+        </div>
+        <button style="margin-left: 50px;" class="btn btn-primary" id="res">Сброс</button>  
     </div>
-    <div class="form_block">
-        <H1 style="font-size: 40px;margin-left: 50px;">Задача</H1>
-        <form>
-            <Input id="text_form" type="text" size="39px">Текст задачи</Input></br>
-            <Input id="data" type="date" value="1994-07-28"></Input></br>
-            <p><input type="checkbox" id="free" name="free" value="free">свободен</p>
+    
+    <div class="change_box row none">
+        <input type="text" class="col-sm" id="jobCh"></input>
+        <input type="date" class="col-sm" id="timeCh"></input>
+        <div  class="col-sm changeBtn redBtn btnOnOff" id="changeBtn"></div>
+        <p><button class="btn btn-primary changeBtn" id="saveCh" type="button">Сохранить</button><button class="btn btn-primary changeBtn" id="noCh" type="button">Отмена</button></p>
+    </div>
+    
+    
+    <footer class= 'footer'>
         
-            <button id="set">Записать</button>
-        </form>    
-    </div>
-    <div class="item-block">   
-
-    </div>
-    <button id="res">сброс</button>
-    <script src="main.js"></script>
+            <h1 class="text-center text-white">ToDo#1</h1>
+        
+    </footer>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

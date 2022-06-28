@@ -1,0 +1,114 @@
+
+body{
+    background-color: beige   ;
+    height: 100%;
+}
+.toDo_wrapper{
+    border: 2px;
+    border-radius: 20px;
+    border-style: inset;
+    background-color: rgb(196, 196, 196);
+    font-style: italic;
+    margin: 20px 40px;
+}
+.toDo_title{
+    background-color: rgba(223, 223, 223, 0.795);
+    margin: 40px 100px 40px 100px;
+    border: 2px;
+    border-radius: 20px;
+    border-style: inset;
+    border-color: rgb(126, 136, 148);
+    text-align: center;
+}
+.form_block{
+    background-color: rgb(194, 243, 247);
+    width: 400px;
+    height: 200px;
+    margin: 40px 10px 10px 30%;
+    padding: 0px 10px 5px 10px;
+    border-color: rgb(180, 238, 235);
+    border-style: ridge;
+    border-width: 4px;
+    border-radius: 30px 10px 30px 10px;
+}
+.item-block{
+    margin: 0 auto;
+    border-radius: 10px 10px 10px 10px;
+    padding: 10px 10px;
+    height: auto;
+    width: 80%;
+    background-color: rgb(184, 184, 184);
+}
+.item_box{
+    text-align: center;
+    background-color: rgb(194, 243, 247);
+    margin: 5px 5px;
+    border-radius: 10px;
+    
+}
+.row{
+  margin: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
+}
+.btn{
+    margin: 5px 5px 5px 5px;
+}
+.col-sm{
+    text-align: center;
+    padding: 5px 5px;
+    margin: 5px 0;
+    border-color: rgb(146, 146, 146);
+    border-style: ridge;
+    border-width: 4px;
+    border-radius: 30px 10px 30px 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.footer {
+	width: 1200px;
+	margin: auto auto 0;
+	height: 100px;
+	position: relative;
+	background-color: rgb(44, 100, 253);
+    border-radius: 0 0 10px 10px;
+}
+header, section,  footer {
+	display: block;
+}
+.header {
+	height: 150px;
+	background-color: rgb(0,255,255);
+}
+/* #wrapper {
+	width: 1000px;
+	margin: 0 auto;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+} */
+.none{
+    display: none;
+}
+.change_box{
+    background-color: rgb(235, 177, 19);
+        position: fixed;
+        text-align: center;
+        border-style: inset;
+        border-width: 2px;
+        top: 30%;
+        left: 10%;
+        width: 80%;
+        height: auto;
+        z-index:2;
+        border-radius: 5px;
+        height: auto;
+}
+.redBtn{
+    background-color: red;
+}
+.greenBtn{
+    background-color: green;
+}
+
+.changeBtn{
+    cursor: pointer;
+}
