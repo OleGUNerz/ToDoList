@@ -11,36 +11,42 @@
 </head>
 <body>
     <header>
-        <div class="toDo_wrapper container-xs">
-            <div class="toDo_title">
-                <div>
-                    <h1>ToDoList</h1>
-                    <h3>Запиши чтоб не забыть, а то я тебя знаю.</h3>
-                </div>
+            <div class="toDo_title col-11 position-relative top-50 start-50 translate-middle-x" >
+                    ToDoList
+                    Запиши чтоб не забыть, а то я тебя знаю.
             </div>
-            <div class="form_block col-12>">
-                <H1>Задача</H1>
-                <form>
-                    
-                    <input name="form" TYPE="text" class="form-control text_form" list="datalistOptions" id="exampleDataList" placeholder="Задача">
-                    <Input name="form" id="data" type="date" value=""></Input></br>
-                    <div class="form-check form-check-inline">
-                        <input name="form" class="form-check-input" type="checkbox" id="free" value="free">
-                        <label class="form-check-label" for="inlineCheckbox1">Свободен/дна</label>
-                      </div>
-                
-                    <button type="button" class="btn btn-primary" id="set">Записать</button>
-                </form>    
-            </div>   
-        </div>
+            
+        
     </header>
-    
-    <div class="item-block" id="content"> 
+    <div class="form_block row">
+      
+      <div class="row"> 
+        <div class="col-3">Задача</div>
+        <input name="form" TYPE="text" class="text_form col" list="datalistOptions" id="exampleDataList" placeholder="Текст задачи">
+      </div>
+      <div class="row">
+        <div class="col-3">Дата</div>
+      <Input name="form" class="col" id="data" type="date" value=""></Input></br>
+      </div>
+      <div class="form-check form-check-inline row">
+          <input name="form" class="form-check-input col-3" type="checkbox" id="free" value="free">
+          <label class="form-check-label col-6" for="inlineCheckbox1">Свободен/дна</label>
+      </div>
+      <button name="form" type="button" class="btn btn-primary col-3" id="set">Записать</button>
+    </div>   
+    <div class="item-block row" id="content"> 
         <div class="item_box"> 
             
         </div>
-        <button style="margin-left: 50px;" class="btn btn-primary" id="res">Сброс</button>  
+        <button  class="btn btn-primary col-3" id="res">Сброс</button>  
     </div>
+    
+    <div class="change_box row none">
+      <input type="text" class="col-sm" id="jobCh"></input>
+      <input type="date" class="col-sm" id="timeCh"></input>
+      <div  class="col-sm changeBtn redBtn btnOnOff"  id="changeBtn"></div>
+      <button class="btn btn-primary changeBtn col-sm" id="saveCh" type="button">Сохранить</button><button class="btn btn-primary changeBtn col-sm" id="noCh" type="button">Отмена</button>
+  </div>
     
     <div class="item-blockDone done" id="content"> 
         <div class="done_box"> 
@@ -48,15 +54,10 @@
         </div> 
     </div>
     
-    <div class="change_box row none">
-        <input type="text" class="col-sm" id="jobCh"></input>
-        <input type="date" class="col-sm" id="timeCh"></input>
-        <div  class="col-sm changeBtn redBtn btnOnOff" id="changeBtn"></div>
-        <p><button class="btn btn-primary changeBtn" id="saveCh" type="button">Сохранить</button><button class="btn btn-primary changeBtn" id="noCh" type="button">Отмена</button></p>
-    </div>
+    
     
 
-    <footer class= 'footer'>
+    <footer class= 'footer row'>
         
             <h1 class="text-center text-white">ToDo#1</h1>
         
