@@ -44,23 +44,27 @@ function CreateItem(text, data, free){
 const createItems = (element, index) => {
     return `
 <div class="row ${element.done ? 'done' : ''}" id="item">
-    <div class="col-sm" id="job">${element.text}</div>
-    <div class="col-sm" id="time">${element.data}</div>
-    <div class="col-sm" id="free">${element.free ? 'свободен/на':'занят/та'}</div>
-    <button onclick ='delItem(${index})' style="width: auto;" class="btn btn-primary" display: inline; id="del_item">Удалить</button>
-    <button onclick ='changeItem(${index})' style="width: auto;" class="btn btn-primary" display: inline; id="change_item">Редактировать</button>
-    <button onclick ='done(${index})' style="width: auto; background-color: rgb(2, 230, 2);" class="btn btn-primary" display: inline; id="done">Готово</button>
+    <div class="block row">
+        <div class="col-4" id="job">${element.text}</div>
+        <div class="col-4" id="time">${element.data}</div>
+        <div class="col-4" id="free">${element.free ? 'свободен/на':'занят/та'}</div>
+    </div>
+    <button onclick ='delItem(${index})' style="width: auto;" class="btn btn-primary col-3 col-lg-2" display: inline; id="del_item">Удалить</button>
+    <button onclick ='changeItem(${index})' style="width: auto;" class="btn btn-primary col-4 col-lg-2" display: inline; id="change_item">Редактировать</button>
+    <button onclick ='done(${index})' style="width: auto; background-color: rgb(2, 230, 2);" class="btn btn-primary col-lg-2" display: inline; id="done">Готово</button>
 </div>
 `
 };
 const createItemsDone = (element, index) => {
     return `
-<div class="row ${element.done ? 'done' : ''}" id="item">
-    <div class="col-sm" id="job">${element.text}</div>
-    <div class="col-sm" id="time">${element.data}</div>
-    <div class="col-sm" id="free">${element.free ? 'свободен/на':'занят/та'}</div>
-    <button onclick ='delItem(${index})' style="width: auto;" class="btn btn-primary" display: inline; id="del_item">Удалить</button>
-    <button onclick ='back(${index})' style="width: auto; background-color: rgb(2, 230, 153);" class="btn btn-primary" display: inline; id="back">Вернуть</button>
+<div class=" row ${element.done ? 'done' : ''}" id="item">
+    <div class="block row">
+        <div class="col-4" id="job">${element.text}</div>
+        <div class="col-4" id="time">${element.data}</div>
+        <div class="col-4" id="free">${element.free ? 'свободен/на':'занят/та'}</div>
+    </div>
+    <button onclick ='delItem(${index})'  class="btn btn-primary col col-lg-2" display: inline; id="del_item">Удалить</button>
+    <button onclick ='back(${index})' style="width: auto; background-color: rgb(2, 230, 153);" class="btn btn-primary col col-lg-2" display: inline; id="back">Вернуть</button>
 </div>
 `
 };
