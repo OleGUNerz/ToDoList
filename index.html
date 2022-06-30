@@ -11,34 +11,32 @@
 </head>
 <body>
     <header>
-            <div class="toDo_title col-11 position-relative top-50 start-50 translate-middle-x" >
+            <div style="padding: 15px ;height: 70px;" class="toDo_title col-11 position-relative top-50 start-50 translate-middle-x" >
                     ToDoList
                     Запиши чтоб не забыть, а то я тебя знаю.
             </div>
-            
-        
     </header>
-    <div class="form_block row">
-      
+
+    <div class="form_block row col-12 col-lg-4 position-relative translate-middle-x top-50 start-50">
       <div class="row"> 
-        <div class="col-3">Задача</div>
-        <input name="form" TYPE="text" class="text_form col" list="datalistOptions" id="exampleDataList" placeholder="Текст задачи">
+        <div class="col-2 col-lg-3">Задача</div>
+        <input name="form" TYPE="text" class="text_form col-4 col-lg-5" list="datalistOptions" id="exampleDataList" placeholder="Текст задачи">
       </div>
       <div class="row">
-        <div class="col-3">Дата</div>
-      <Input name="form" class="col" id="data" type="date" value=""></Input></br>
+        <div class="col-2 col-lg-3">Дата</div>
+      <Input name="form" class="col-4 col-lg-5" id="data" type="date" value=""></Input></br>
       </div>
       <div class="form-check form-check-inline row">
-          <input name="form" class="form-check-input col-3" type="checkbox" id="free" value="free">
+          <input name="form" class="form-check-input col-1" type="checkbox" id="free" value="free">
           <label class="form-check-label col-6" for="inlineCheckbox1">Свободен/дна</label>
       </div>
       <button name="form" type="button" class="btn btn-primary col-3" id="set">Записать</button>
     </div>   
-    <div class="item-block row" id="content"> 
+    <div class="item-block row col-11 position-relative top-50 start-50 translate-middle-x" id="content"> 
         <div class="item_box"> 
             
         </div>
-        <button  class="btn btn-primary col-3" id="res">Сброс</button>  
+        <button  class="btn btn-primary col-4 col-lg-2" id="res">Сброс</button>  
     </div>
     
     <div class="change_box row none">
@@ -48,7 +46,8 @@
       <button class="btn btn-primary changeBtn col-sm" id="saveCh" type="button">Сохранить</button><button class="btn btn-primary changeBtn col-sm" id="noCh" type="button">Отмена</button>
   </div>
     
-    <div class="item-blockDone done" id="content"> 
+    <div class="item-blockDone col-10 col-lg-11 done position-relative translate-middle-x top-50 start-50" id="content">
+      <div style="color: white; font-size: x-large;">Завершёные</div>
         <div class="done_box"> 
             
         </div> 
@@ -57,7 +56,7 @@
     
     
 
-    <footer class= 'footer row'>
+    <footer class= 'footer row toDo_title col-11 position-relative top-50 start-50 translate-middle-x'>
         
             <h1 class="text-center text-white">ToDo#1</h1>
         
