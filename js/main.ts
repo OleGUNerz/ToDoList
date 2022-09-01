@@ -15,10 +15,6 @@ const saveCh = document.getElementById('saveCh');
 const snoCh = document.getElementById('noCh');
 const done_block = document.querySelector('.item-blockDone');
 const done_box = document.querySelector('.done_box');
-let storageSlicer;
-let chIt;
-let truCh;
-let moviCh;
 
 
 interface IStorage{
