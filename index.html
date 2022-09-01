@@ -10,6 +10,7 @@
     <title>ToDoList</title>
 </head>
 <body>
+<<<<<<< HEAD
     <header class="container-fluids pb-1">
         <container class="row text-center p-2 bg-light border mb-2">
             <div class="col-12 col-lg-1"><img src="ico/ToDo.png" alt="альтернативный текст"></div>
@@ -45,12 +46,44 @@
     </container>
             
             
+=======
+    <header>
+            <div style="padding: 15px ;height: 70px;" class="toDo_title col-11 position-relative top-50 start-50 translate-middle-x" >
+                    ToDoList
+                    Запиши чтоб не забыть, а то я тебя знаю.
+            </div>
+    </header>
+
+    <div class="form_block row col-12 col-lg-4 position-relative translate-middle-x top-50 start-50">
+      <div class="row"> 
+        <div class="col-2 col-lg-3">Задача</div>
+        <input name="form" TYPE="text" class="text_form col-4 col-lg-5" list="datalistOptions" id="exampleDataList" placeholder="Текст задачи">
+      </div>
+      <div class="row">
+        <div class="col-2 col-lg-3">Дата</div>
+      <Input name="form" class="col-4 col-lg-5" id="data" type="date" value=""></Input></br>
+      </div>
+      <div class="form-check form-check-inline row">
+          <input name="form" class="form-check-input col-1" type="checkbox" id="free" value="free">
+          <label class="form-check-label col-6" for="inlineCheckbox1">Свободен/дна</label>
+      </div>
+      <button name="form" type="button" class="btn btn-primary col-3" id="set">Записать</button>
+    </div>   
+    <div class="item-block row col-11 position-relative top-50 start-50 translate-middle-x" id="content"> 
+        <div class="item_box"> 
+            
+        </div>
+        <button  class="btn btn-primary col-4 col-lg-2" id="res">Сброс</button>  
+    </div>
+    
+>>>>>>> 24debf8307a1372f6b6064c7603cc800bfa98c79
     <div class="change_box row none">
       <input type="text" class="col-sm" id="jobCh"></input>
       <input type="date" class="col-sm" id="timeCh"></input>
       <div  class="col-sm changeBtn redBtn btnOnOff" id="changeBtn"></div>
       <p><button class="btn btn-primary changeBtn" id="saveCh" type="button">Сохранить</button><button class="btn btn-primary changeBtn" id="noCh" type="button">Отмена</button></p>
   </div>
+<<<<<<< HEAD
   
 
         <div class="item-blockDone col-10 col-lg-11 done position-relative translate-middle-x top-50 start-50" id="content">
@@ -71,6 +104,25 @@
         <button  class="btn btn-primary col-4 col-lg-2" id="res">Сброс</button>  
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+=======
+    
+    <div class="item-blockDone col-10 col-lg-11 done position-relative translate-middle-x top-50 start-50" id="content">
+      <div style="color: white; font-size: x-large;">Завершёные</div>
+        <div class="done_box"> 
+            
+        </div> 
+    </div>
+    
+    
+    
+
+    <footer class= 'footer row toDo_title col-11 position-relative top-50 start-50 translate-middle-x'>
+        
+            <h1 class="text-center text-white">ToDo#1</h1>
+        
+    </footer>
+    <script src="js/bootstrap.bundle.js"></script>
+>>>>>>> 24debf8307a1372f6b6064c7603cc800bfa98c79
     <script src="js/main.js"></script>
 </body>
 </html>

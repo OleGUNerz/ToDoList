@@ -104,6 +104,23 @@ body{
     background-color: rgb(77, 77, 77);
     border-radius: 0 0 5px 5px;
     text-align: center;
+<<<<<<< HEAD
+}
+#item{
+    border-style:  ridge;
+    border-width: 2px;
+    border-color: rgb(105, 105, 105);
+
+}
+
+.block{
+    border-style:  dotted;
+    border-radius: 1px;
+    background-color: rgb(255, 248, 236);
+    border-width: 1px;
+    border-color: rgb(43, 255, 0);
+=======
+>>>>>>> 24debf8307a1372f6b6064c7603cc800bfa98c79
 }
 #item{
     border-style:  ridge;

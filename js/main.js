@@ -1,102 +1,175 @@
-var text = document.querySelector('#exampleDataList');
-var data = document.querySelector('#data');
-var loggle = document.getElementById('free');
-var btnSet = document.querySelector('#set');
-var btnRes = document.querySelector('#res');
-var del = document.querySelectorAll('#del');
-var itemBox = document.querySelector('.item_box');
-var checkI = document.querySelector('.item-block');
-var changeBtn = document.querySelector('.changeBtn');
-var btnOnOff = document.getElementById('changeBtn');
-var change_box = document.querySelector('.change_box');
-var jobCh = document.getElementById('jobCh');
-var timeCh = document.getElementById('timeCh');
-var saveCh = document.getElementById('saveCh');
-var snoCh = document.getElementById('noCh');
-var done_block = document.querySelector('.item-blockDone');
-var done_box = document.querySelector('.done_box');
-var storageSlicer;
-var chIt;
-var truCh;
-var moviCh;
-var loStorage = /** @class */ (function () {
-    function loStorage(cacheKey) {
-        this.cacheKey = cacheKey;
+const text = document.querySelector('#exampleDataList');
+const data = document.querySelector('#data');
+const loggle = document.getElementById('free');
+const btnSet = document.querySelector('#set');
+const btnRes = document.querySelector('#res');
+const del = document.querySelectorAll('#del')
+const itemBox = document.querySelector('.item_box');
+const checkI = document.querySelector('.item-block');
+const changeBtn = document.querySelector('.changeBtn');
+const btnOnOff = document.getElementById('changeBtn');
+const change_box = document.querySelector('.change_box');
+const jobCh = document.getElementById('jobCh');
+const timeCh = document.getElementById('timeCh');
+const saveCh = document.getElementById('saveCh');
+const snoCh = document.getElementById('noCh');
+const done_block = document.querySelector('.item-blockDone');
+const done_box = document.querySelector('.done_box');
+let storage;
+let storageDone =[];
+let storageSlicer;
+let chIt;
+let truCh;
+let moviCh;
+
+const boxNone = ()=>{
+    if(storage.length == 0){
+        checkI.classList.add("none");
+        done_block.classList.add("none");
+    }else{
+        checkI.classList.remove("none");
+        done_block.classList.remove("none");
     }
-    loStorage.prototype.get = function (idTask) {
-        var item = localStorage.getItem(this.cacheKey);
-        if (item == undefined) {
-            item = '[]';
-        }
-        var getted = JSON.parse(item);
-        for (var _i = 0, getted_1 = getted; _i < getted_1.length; _i++) {
-            var i = getted_1[_i];
-            if (i.id == idTask) {
-                return i;
+}
+!localStorage.items ? storage = [] : storage = JSON.parse(localStorage.getItem('items'));
+boxNone();
+
+function CreateItem(text, data, free){
+    this.text = text;
+    this.data = data;
+    this.free = free;
+    this.done = false;
+};
+
+const createItems = (element, index) => {
+    return `
+<div class="row ${element.done ? 'done' : ''}" id="item">
+    <div class="col-sm" id="job">${element.text}</div>
+    <div class="col-sm" id="time">${element.data}</div>
+    <div class="col-sm" id="free">${element.free ? 'свободен/на':'занят/та'}</div>
+    <button onclick ='delItem(${index})' style="width: auto;" class="btn btn-primary" display: inline; id="del_item">Удалить</button>
+    <button onclick ='changeItem(${index})' style="width: auto;" class="btn btn-primary" display: inline; id="change_item">Редактировать</button>
+    <button onclick ='done(${index})' style="width: auto; background-color: rgb(2, 230, 2);" class="btn btn-primary" display: inline; id="done">Готово</button>
+</div>
+`
+};
+const createItemsDone = (element, index) => {
+    return `
+<div class="row ${element.done ? 'done' : ''}" id="item">
+    <div class="col-sm" id="job">${element.text}</div>
+    <div class="col-sm" id="time">${element.data}</div>
+    <div class="col-sm" id="free">${element.free ? 'свободен/на':'занят/та'}</div>
+    <button onclick ='delItem(${index})' style="width: auto;" class="btn btn-primary" display: inline; id="del_item">Удалить</button>
+    <button onclick ='back(${index})' style="width: auto; background-color: rgb(2, 230, 153);" class="btn btn-primary" display: inline; id="back">Вернуть</button>
+</div>
+`
+};
+
+const addHTML = () => {
+    itemBox.innerHTML = "";
+    done_box.innerHTML = "";
+    if (storage.length > 0){
+        storage.forEach((item, index) => {
+            if(item.done){
+                done_box.innerHTML += createItemsDone(item, index);
+                
+            }else{
+                itemBox.innerHTML += createItems(item, index);
             }
-        }
-        return null;
-    };
-    loStorage.prototype.save = function (task) {
-        var item = localStorage.getItem(this.cacheKey);
-        if (item == undefined) {
-            item = '[]';
-        }
-        var locSPac = JSON.parse(item);
-        locSPac.push(task);
-        localStorage.setItem(this.cacheKey, JSON.stringify(locSPac));
-    };
-    loStorage.prototype.remove = function (idTask) {
-        var item = localStorage.getItem(this.cacheKey);
-        if (item == undefined) {
-            item = '[]';
-        }
-        var locSPac = JSON.parse(item);
-        for (var i = 0; i < locSPac.length; i++) {
-            if (locSPac[i].id == idTask) {
-                locSPac.splice(i, 1);
-                localStorage.setItem(this.cacheKey, JSON.stringify(locSPac));
-            }
-        }
-    };
-    loStorage.prototype.getAll = function () {
-        var item = localStorage.getItem(this.cacheKey);
-        if (item == undefined) {
-            item = '[]';
-        }
-        var tasks = JSON.parse(item);
-        var arr = [];
-        for (var _i = 0, tasks_1 = tasks; _i < tasks_1.length; _i++) {
-            var i = tasks_1[_i];
-            arr.push(new Task(i.id, i.text, i.data, i.free, i.done));
-        }
-        return arr;
-    };
-    return loStorage;
-}());
-var ne = new loStorage('tasks');
-var Task = /** @class */ (function () {
-    function Task(id, text1, data1, free1, done1) {
-        this.id = id;
-        this.text = text1;
-        this.data = data1;
-        this.free = free1;
-        this.done = false;
+
+        })
+    
     }
-    ;
-    return Task;
-}());
-;
-var TaskFactory = /** @class */ (function () {
-    function TaskFactory() {
+}
+addHTML();
+
+const updateLocal = () => {
+    localStorage.setItem('items', JSON.stringify(storage));
+};
+
+btnSet.addEventListener('click', ()=>{
+    if(text.value){storage.push(new CreateItem(text.value, data.value, loggle.checked))
+    updateLocal();
+    addHTML();
+    boxNone();
+    text.value="";
+    text.focus();
+    }else{
+        alert('Введите задачу')
     }
-    TaskFactory.prototype.create = function (text, data, free, done) {
-        var taskId = Math.random().toString(36);
-        var creation = new Task(taskId, text, data, free, done);
-        return creation;
-    };
-    ;
-    return TaskFactory;
-}());
-;
-var mo = new TaskFactory;
+});
+btnRes.addEventListener('click', ()=>{
+    storage = [];
+    updateLocal();
+    addHTML();
+    boxNone();
+});
+
+const delItem = (item) => {
+    let say = confirm('Вы уверены?');
+    if(say){
+        storage.splice(item, 1);
+    console.log(item)
+    updateLocal();
+    addHTML();
+    boxNone();
+    }else{
+        return;
+    }
+}
+
+const changeItem = (index)=>{
+    chIt = index;
+    jobCh.value = storage[index].text;
+    timeCh.value = storage[index].data;
+    truCh = storage[index].free;
+    moviCh = truCh;
+    if(truCh){
+        btnOnOff.classList.replace('redBtn', 'greenBtn');
+        btnOnOff.innerText = 'Свободен/дна';
+    }else{
+        btnOnOff.classList.replace('greenBtn', 'redBtn');
+        btnOnOff.innerText = 'Занят/та';
+    }
+    change_box.classList.remove('none');
+    
+}
+snoCh.addEventListener('click', ()=>{
+    change_box.classList.add('none');
+})
+
+saveCh.addEventListener('click', ()=>{
+   
+    storage[chIt].text = jobCh.value;
+    storage[chIt].data = timeCh.value;
+    storage[chIt].free = truCh;
+    change_box.classList.add('none')
+    updateLocal();
+    addHTML();
+}
+)
+btnOnOff.addEventListener("click", ()=>{
+    if(moviCh){
+        btnOnOff.classList.replace('greenBtn', 'redBtn');
+        btnOnOff.innerText = 'Занят/та';
+        moviCh = false;
+    }else{
+        btnOnOff.classList.replace('redBtn', 'greenBtn');
+        btnOnOff.innerText = 'Свободен/дна';
+        moviCh = true;
+    }
+    truCh=moviCh;
+});
+
+const done = (index)=>{
+    storage[index].done = true;
+    updateLocal();
+    addHTML();
+    boxNone();
+}
+const back = (index)=>{
+    storage[index].done = false;
+    updateLocal();
+    addHTML();
+    boxNone();
+}
