@@ -1,4 +1,4 @@
-const text = document.querySelector('#exampleDataList');
+const text2 = document.querySelector('#exampleDataList');
 const data = document.querySelector('#data');
 const loggle = document.getElementById('free');
 const btnSet = document.querySelector('#set');
