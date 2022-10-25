@@ -9,6 +9,10 @@ const save = document.querySelector('.save');
 let edText = document.querySelector('#edText');
 let edDate = document.querySelector('#edDate');
 let chEdit = document.querySelector('#chEdit');
+const all = document.getElementById("all");
+const dons = document.getElementById("dons");
+const overdue = document.getElementById("overdue");
+const not_ready = document.getElementById("not_ready");
 function clear() {
     text.value = "";
     data.value = "";
@@ -107,7 +111,7 @@ form.addEventListener('submit', (e) => {
         const t = mo.create(text.value, data.value, check.checked, false);
         ne.save(t);
         clear();
-        renderTask();
+        renderTask(null);
     }
     else {
         alert("введи задачу");
@@ -118,9 +122,16 @@ back.addEventListener("click", () => {
         popup.classList.add("none");
     }
 });
-function renderTask() {
+function renderTask(tasks) {
+    let collTask;
+    if (tasks) {
+        collTask = tasks;
+    }
+    else {
+        collTask = ne.getAll();
+    }
     let template = document.getElementById('template').innerHTML;
-    document.getElementById('target').innerHTML = Mustache.render(template, { Task: (ne.getAll()) });
+    document.getElementById('target').innerHTML = Mustache.render(template, { Task: (collTask) });
     let trFa = document.querySelectorAll('td');
     for (let i of trFa) {
         if (i.innerHTML == 'false') {
@@ -137,32 +148,32 @@ function renderTask() {
         i.addEventListener('click', (e) => {
             if (confirm("Вы уверены?")) {
                 ne.remove(e.target.id);
-                renderTask();
+                renderTask(null);
             }
         });
     }
     for (let i of btnDone) {
         i.addEventListener('click', (e) => {
             doneTask(e.target.id);
-            renderTask();
+            renderTask(null);
         });
     }
     for (let i of btnEdit) {
         i.addEventListener('click', (e) => {
             editTask(e.target.id);
             saves(e.target.id);
-            renderTask();
+            renderTask(null);
         });
     }
 }
-renderTask();
+renderTask(null);
 function doneTask(id) {
     let locDone = ne.get(id);
     if (locDone) {
         locDone.done ? locDone.done = false : locDone.done = true;
     }
     ne.save(locDone);
-    renderTask();
+    renderTask(null);
 }
 function saves(id) {
     const p = new Promise(function (resolve, reject) {
@@ -184,13 +195,13 @@ function saves(id) {
             if (popup) {
                 popup.classList.add("none");
             }
-            renderTask();
+            renderTask(null);
         }
         else {
             if (confirm("Вы хоте удалить пустую таску?")) {
                 ne.remove(id);
                 popup.classList.add("none");
-                renderTask();
+                renderTask(null);
             }
             else {
                 saves(id);
@@ -207,3 +218,42 @@ function editTask(id) {
     edDate.value = locTask === null || locTask === void 0 ? void 0 : locTask.data;
     chEdit.checked = locTask === null || locTask === void 0 ? void 0 : locTask.free;
 }
+dons.addEventListener("click", () => {
+    let locTask = ne.getAll();
+    let done = [];
+    for (let i = 0; i < locTask.length; ++i) {
+        if (locTask[i].done == true) {
+            done.push(locTask[i]);
+        }
+    }
+    renderTask(done);
+});
+not_ready.addEventListener("click", () => {
+    let locTask = ne.getAll();
+    let done = [];
+    for (let i = 0; i < locTask.length; ++i) {
+        if (locTask[i].done !== true) {
+            done.push(locTask[i]);
+        }
+    }
+    renderTask(done);
+});
+overdue.addEventListener("click", () => {
+    let locTask = ne.getAll();
+    let done = [];
+    let newDtae = new Date();
+    const d = `${newDtae.getFullYear()}-${newDtae.getMonth() + 1}-${newDtae.getDate()}`;
+    let nDate = Date.parse(d);
+    for (let i = 0; i < locTask.length; ++i) {
+        let data = Date.parse(locTask[i].data);
+        if (nDate > data) {
+            if (locTask[i].done !== true) {
+                done.push(locTask[i]);
+            }
+        }
+    }
+    renderTask(done);
+});
+all.addEventListener("click", () => {
+    renderTask(null);
+});

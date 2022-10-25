@@ -1,6 +1,6 @@
 .form_box{
     display: flex;
-    background-color:rgb(227, 230, 233);
+    background-color: #DCDCDC;
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
@@ -47,4 +47,33 @@
 
 .none{
     display: none;
+}
+
+.sort_box{
+    padding: 4px;
+    background: #D3D3D3;
+    border-radius: 10px 10px;
+}
+
+.title_sort{
+    text-align: center;
+    font-size: 28px;
+}
+
+.kategory{
+    display: flex;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.btn_sort{
+
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 20px;
+    border-style: groove;
+
+}
+.btn_sort:hover{
+    background: rgba(192, 192, 192, 0.9);
 }
