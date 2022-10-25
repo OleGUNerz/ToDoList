@@ -1,138 +1,50 @@
+.form_box{
+    display: flex;
+    background-color:rgb(227, 230, 233);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
 
-body{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.toDo_wrapper{
-    border: 2px;
-    border-radius: 0 0 20px 20px;
-    border-style: solid;
-    background-color: rgb(196, 196, 196);
-    font-style: italic;
-    
-}
-.toDo_title{
-    
-    background-color: rgb(44, 100, 253);
-    color: white;
-    border: 2px;
-    border-radius: 0 0 20px 20px;
-    border-style: inset;
-    border-color: rgb(126, 136, 148);
+
+.title_box{
     text-align: center;
-    margin-bottom: 20px;
-}
-.form_block{
-    background-color: rgb(230, 230, 230);
-    border-color: rgb(182, 182, 182);
-    border-style: ridge;
-    border-width: 1px;
-    margin-bottom: 20px;
 }
 
-.item-block{
-    margin-bottom: 20px;
+.true{
+    background: #198754;
+}
+
+.popup{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.6);
+}
+
+._popupBody{
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+
+}
+
+._popupContent{
+    min-width: 450px;
+    background:honeydew;
+    padding: 20px;
     border-radius: 10px;
-    border-style: solid;
-    border-width: 1px;
-    background-color: rgb(243, 243, 243);
 }
 
-.item_box{
+.btnBlock{
     text-align: center;
-    background-color: rgb(250, 250, 250);
-    border-radius: 10px;
-    border-style: solid;
-
+    padding: 10px;
 }
-.btn{
-    margin: 5px 5px 5px 5px;
-}
-.col-sm{
-    text-align: center;
-    border-color: rgb(146, 146, 146);
-    border-style: ridge;
-    border-width: 4px;
-    border-radius: 30px 10px 30px 10px;
-}
-.footer {
-	background-color: rgb(44, 100, 253);
-    border-radius: 0 0 10px 10px;
-}
-
 
 .none{
     display: none;
-}
-.change_box{
-        background-color: rgb(235, 177, 19);
-        text-align: center;
-        border-style: inset;
-        border-width: 2px;
-        z-index:2;
-        border-radius: 5px;
-        position: fixed;
-        align-items: center;
-        height: 100px;
-        justify-content: center;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        margin: 100px 100px 100px 100px;
-}
-.redBtn{
-    background-color: red;
-}
-.greenBtn{
-    background-color: green;
-}
-
-.changeBtn{
-    cursor: pointer;
-}
-
-
-.item-blockDone{
-    border-radius: 10px 10px 0 0;
-    background-color: rgb(184, 184, 184);
-    background-color: rgb(77, 77, 77);
-    border-radius: 0 0 5px 5px;
-}
-
-.done{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: rgb(77, 77, 77);
-    border-radius: 0 0 5px 5px;
-    text-align: center;
-<<<<<<< HEAD
-}
-#item{
-    border-style:  ridge;
-    border-width: 2px;
-    border-color: rgb(105, 105, 105);
-
-}
-
-.block{
-    border-style:  dotted;
-    border-radius: 1px;
-    background-color: rgb(255, 248, 236);
-    border-width: 1px;
-    border-color: rgb(43, 255, 0);
-=======
->>>>>>> 24debf8307a1372f6b6064c7603cc800bfa98c79
-}
-#item{
-    border-style:  ridge;
-    border-width: 2px;
-    border-color: rgb(105, 105, 105);
-
-}
-
-.block{
-    border-style:  dotted;
-    border-radius: 1px;
-    background-color: rgb(255, 248, 236);
-    border-width: 1px;
-    border-color: rgb(43, 255, 0);
 }
