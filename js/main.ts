@@ -167,7 +167,7 @@ function renderTask(tasks:Task[]|null) {
         if(i.innerHTML == 'false'){
             i.innerHTML = "Занят/та"
         }else if(i.innerHTML == 'true'){
-            i.innerHTML = "Свободен/а"
+            i.innerHTML = "Свободен/дна"
         }
     }
     const btnDel = document.querySelectorAll('.dell')
